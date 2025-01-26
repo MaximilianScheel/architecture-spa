@@ -13,6 +13,7 @@ $color-accent: #9eca65;
   --color-bg: #{$color-bg};
   --color-bg-secondary: #{$color-bg-secondary};
   --color-text: #{$color-text};
+  --color-text-secondary: #{$color-text-secondary};
   --color-main: #{$color-main};
   --color-accent: #{$color-accent};
 }
@@ -23,6 +24,10 @@ $color-accent: #9eca65;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 

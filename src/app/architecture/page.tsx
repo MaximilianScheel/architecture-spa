@@ -6,7 +6,7 @@ import styles from './Architecture.module.scss';
 
 export default function ArchitecturePage() {
   return (
-    <section className={styles.section} id="architecture" data-aos="fade-up">
+    <section className={styles.section} id="architecture">
       {/* Logo und Überschrift */}
       <div className={styles.logoWrapper}>
         <img src={architectureData.logo} alt="Logo" />
