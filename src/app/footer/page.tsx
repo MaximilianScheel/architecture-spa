@@ -19,9 +19,9 @@ const Footer = () => {
               xmlSpace="preserve"
             >
               <style type="text/css">
-                {`.st0 { fill: none; stroke: #FF6B6B; stroke-miterlimit: 10; }`}
+                {`.st1 { fill: none; stroke: #FF6B6B; stroke-miterlimit: 10; }`}
               </style>
-              <path className="st0" d="M105,95.9H5V14.5h100V95.9z M18.6,84l10.3-57.6h-3.2L15.4,84H18.6z M32.5,84l10.3-57.6h-3.2L29.3,84H32.5z
+              <path className="st1" d="M105,95.9H5V14.5h100V95.9z M18.6,84l10.3-57.6h-3.2L15.4,84H18.6z M32.5,84l10.3-57.6h-3.2L29.3,84H32.5z
               M46.3,84L55,35.3L63.8,84H67L56.6,26.4h-3.2L43.2,84H46.3z M80.8,84L70.5,26.4h-3.2L77.6,84H80.8z M94.7,84L84.4,26.4h-3.2L91.5,84
               H94.7z"/>
             </svg>
@@ -31,7 +31,7 @@ const Footer = () => {
       
       <div className={styles.footerText}>
         <Link href="/legal-notice">
-          <p>
+          <p className={styles.footerParagraph}>
             architektur <br />
             energieberatung<br /><br />
             jacob mau, freier architekt<br />
