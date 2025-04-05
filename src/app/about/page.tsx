@@ -13,13 +13,12 @@ export default function AboutSection() {
 
       {/* Image-Wrapper */}
       <div className={styles.imgWrapper}>
-        <span className={styles.descriptionBio}>
-          alle müssen wohnen & jeder ort ist anders. <br />
+        <p className={styles.descriptionBio}>
+          alle müssen wohnen & jeder ort ist anders.
           mit den individuellen anforderungen der auftraggebenden und den
-          <br />
-          spezifischen gegebenheiten des jeweiligen ortes zeitgemäße <br />
+          spezifischen gegebenheiten des jeweiligen ortes zeitgemäße
           architektur zu gestalten, habe ich mir zur aufgabe gemacht.
-        </span>
+        </p>
         <Image
           src="/assets/profile.png"
           alt="Profilbild von Jacob Mau"

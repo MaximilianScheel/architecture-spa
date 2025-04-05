@@ -1,17 +1,8 @@
 
+  
   .textWrapper {
     margin: 0 10rem;
-  
-    .piktogramm {
-      max-width: 600px;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-  }
-  
-  .textWrapper {
-  
+
     .leistungenTitle {
       font-size: 1.8rem;
       margin-bottom: 1rem;
@@ -21,6 +12,20 @@
     .leistungenText {
       font-size: 1.6rem;
       line-height: 1.6;
+      margin-bottom: 5rem;
+    }
+  }
+
+  
+  .imgWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+  
+    img {
+      max-width: 600px;
+      width: 100%;
+      height: auto;
     }
   }
   

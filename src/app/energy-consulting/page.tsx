@@ -17,14 +17,15 @@ export default function EnergyConsultingSection() {
       <div className={styles.textWrapper}>
         <p className={styles.leistungenText}>{energyConsulting.leistungenText}</p>
       </div>
-
-      <Image
-          src="/assets/Piktogram_Architektur.webp"
+      <div className={styles.imgWrapper}>
+        <Image
+          src="/assets/Piktogramm_Energieberatung.webp"
           alt="Profilbild von Jacob Mau"
           width={400}
           height={400}
           className={styles.profileImage}
         />
+      </div>
     </section>
   );
 }

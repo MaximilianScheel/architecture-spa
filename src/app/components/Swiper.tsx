@@ -22,7 +22,7 @@ export default function MySwiper() {
       pagination={{ clickable: true }}
       autoplay={{ delay: 100000, disableOnInteraction: false }}
       loop
-      style={{ width: '100%', height: 'auto' }}
+      style={{ width: '100%', height: '65vh' }}
     >
       {slides.map((slide, index) => (
         <SwiperSlide key={index}>

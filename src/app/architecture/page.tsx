@@ -43,15 +43,15 @@ export default function ArchitecturePage() {
           </Accordion.Content>
         </Accordion.Item>
       </Accordion.Root>
-
-      <Image
+      <div className={styles.imgWrapper}>
+        <Image
           src="/assets/Piktogram_Architektur.webp"
-          alt="Profilbild von Jacob Mau"
+          alt="Architektur Piktogramu"
           width={400}
           height={400}
           className={styles.profileImage}
         />
-
+      </div>
       {/* Accordion für Projektübersicht */}
       <div className={styles.projectOverview}>
         <h2 className={styles.headline}>
@@ -65,7 +65,7 @@ export default function ArchitecturePage() {
                   {project.year}
                 </Accordion.Trigger>
               </Accordion.Header>
-              <Accordion.Content className={styles.projectContent}>
+              <Accordion.Content className={styles.accordionContent}>
                 <ul>
                   {project.items.map((item: string, idx: number) => (
                     <li key={idx}>{item}</li>
