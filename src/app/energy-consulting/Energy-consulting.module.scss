@@ -1,33 +1,6 @@
-.section {
-    width: 100%;
-    padding: 4rem 2rem;
-    color: var(--color-text-secondary);
-  }
-  
-  .logoWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 3rem;
-  
-    .logo {
-      width: 100px;
-      height: auto;
-      margin-bottom: 1rem;
-    }
-  
-    .heading {
-      font-size: 2rem;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-  }
-  
-  .imgWrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3rem;
+
+  .textWrapper {
+    margin: 0 10rem;
   
     .piktogramm {
       max-width: 600px;
@@ -38,9 +11,6 @@
   }
   
   .textWrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
   
     .leistungenTitle {
       font-size: 1.8rem;

@@ -8,33 +8,23 @@ export default function EnergyConsultingSection() {
   return (
     <section
       className={styles.section}
-      id="energieberatung"
+      id="energyConsulting"
     >
       <div className={styles.logoWrapper}>
-        <Image
-          src={energyConsulting.logo}
-          alt="Logo"
-          width={100}
-          height={100}
-          className={styles.logo}
-        />
-        <span className={styles.heading}>{energyConsulting.heading}</span>
-      </div>
-
-      <div className={styles.imgWrapper}>
-        <Image
-          src={energyConsulting.piktogramm}
-          alt="Piktogramm Energieberatung"
-          width={600}
-          height={400}
-          className={styles.piktogramm}
-        />
+        <h2 className={styles.heading}>{energyConsulting.heading}</h2>
       </div>
 
       <div className={styles.textWrapper}>
-        <h2 className={styles.leistungenTitle}>{energyConsulting.leistungenTitle}</h2>
         <p className={styles.leistungenText}>{energyConsulting.leistungenText}</p>
       </div>
+
+      <Image
+          src="/assets/Piktogram_Architektur.webp"
+          alt="Profilbild von Jacob Mau"
+          width={400}
+          height={400}
+          className={styles.profileImage}
+        />
     </section>
   );
 }

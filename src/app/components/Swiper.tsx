@@ -7,9 +7,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const slides = [
-  { img: '/assets/BER_123.jpg', caption: 'Slide 1' },
-  { img: '/assets/BER_234.jpg', caption: 'Slide 2' },
-  { img: '/assets/BER_345.jpg', caption: 'Slide 3' }
+  { img: '/assets/Slider_Apfelweg_1.webp', caption: 'Slide 1' },
+  { img: '/assets/Slider_Apfelweg_2.webp', caption: 'Slide 2' },
+  { img: '/assets/Slider_Apfelweg_3.webp', caption: 'Slide 3' },
+  { img: '/assets/Slider_Apfelweg_4.webp', caption: 'Slide 4' }
 ];
 
 export default function MySwiper() {
@@ -19,7 +20,7 @@ export default function MySwiper() {
       spaceBetween={30}
       navigation
       pagination={{ clickable: true }}
-      autoplay={{ delay: 3000, disableOnInteraction: false }}
+      autoplay={{ delay: 100000, disableOnInteraction: false }}
       loop
       style={{ width: '100%', height: 'auto' }}
     >

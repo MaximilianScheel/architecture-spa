@@ -1,30 +1,13 @@
-.section {
-    width: 100%;
-    padding: 4rem 2rem;
-    color: #555555;
-    /* Optional: Hintergrundeinstellungen via globalen Variablen (falls vorhanden) */
-  }
+
   
   /* Logo und Überschrift */
-  .logoWrapper {
+  
+  .projectAccordion {
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 3rem;
-  
-    img {
-      width: 100px;
-      height: auto;
-      display: block;
-    }
+    gap: 3rem;
   }
-  
-  .companyDescription {
-    font-size: 1.8rem;
-    margin-top: 1rem;
-  }
-  
   /* Piktogramm */
   .imgWrapper {
     display: flex;
@@ -40,9 +23,7 @@
   
   /* Text "Leistungen" */
   .textWrapper {
-    max-width: 800px;
     margin: 0 auto 3rem;
-    text-align: center;
   
     .headline {
       font-size: 2rem;
@@ -57,24 +38,23 @@
     }
   
     a {
-      color: #9eca65; /* oder var(--color-accent) */
+      color: var(--color-accent);
       text-decoration: none;
+      font-size: 1.6rem;
     }
   }
   
   /* Accordion (LPH) */
   .accordionRoot {
-    max-width: 800px;
     margin: 0 auto 3rem;
   }
   
   .accordionHeader {
     cursor: pointer;
-    background-color: #f6f6f6;
     padding: 1rem;
     font-size: 1.6rem;
     font-weight: 500;
-    border: 1px solid lightgray;
+    border: 1px solid #FF6B6B;
     border-radius: 4px;
   
     &:hover {
@@ -100,7 +80,6 @@
   
   /* Projektübersicht */
   .projectOverview {
-    max-width: 800px;
     margin: 0 auto;
   
     .headline {
@@ -119,11 +98,10 @@
   
   .projectHeader {
     cursor: pointer;
-    background-color: #f6f6f6;
     padding: 1rem;
     font-size: 1.6rem;
     font-weight: 500;
-    border: 1px solid lightgray;
+    border: 1px solid #FF6B6B;
     border-radius: 4px;
   
     &:hover {

@@ -8,14 +8,7 @@ export default function AboutSection() {
     <section className={`${styles.architecture}`} id="about">
       {/* Logo-Wrapper */}
       <div className={styles.logoWrapper}>
-        <Image
-          src="/assets/logo_black.png"
-          alt="Logo von Jacob Mau"
-          width={100}
-          height={100}
-          className={styles.logoImage}
-        />
-        <span className={styles.companyDescription}>Profil</span>
+        <h2 className={styles.companyDescription}>Profil</h2>
       </div>
 
       {/* Image-Wrapper */}

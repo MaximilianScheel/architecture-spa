@@ -108,21 +108,9 @@ const ContactSection: React.FC = () => {
   return (
     <section className={styles.contact} id="contact">
       {/* Logo-Wrapper */}
-      <div className={styles.logoWrapper}>
-        <Image
-          src="/assets/logo_black.png"
-          alt="Logo von Jacob Mau"
-          width={100}
-          height={100}
-          className={styles.logoImage}
-        />
-        <span className={styles.companyDescription}>Kontakt</span>
-      </div>
-
-      {/* Line-Wrapper */}
-      <div className={styles.lineWrapper}>
-        <div className={styles.line}></div>
-      </div>
+        
+        <h2 className={styles.companyDescription}>Kontakt</h2>
+      
 
       {/* Kontaktformular */}
       <form className={styles.form} onSubmit={handleSubmit} noValidate>

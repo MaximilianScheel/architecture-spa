@@ -2,62 +2,12 @@
 
 .contact {
     min-height: 100vh;
-    padding: 13rem 9% 2rem;
     margin-bottom: 5rem;
-    color: var(--text-color);
-    background-color: var(--background-color); // Optional: Hintergrundfarbe hinzufügen
-  
-    @media (max-width: 1200px) {
-      padding: 10rem 4% 2rem;
-    }
-  
-    @media (max-width: 991px) {
-      padding: 10rem 4% 2rem;
-    }
+    color: var(--text-tertiary);
   }
-  
-  .logoWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  
-    .logoImage {
-      width: 100px;
-      height: auto;
-    }
-  
-    .companyDescription {
-      font-size: 1.7rem;
-      color: black;
-      font-weight: 400;
-      padding: 2rem;
-    }
-  }
-  
-  .lineWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 2rem;
-    padding-bottom: 4rem;
-  }
-  
-  .line {
-    border: 0.2rem solid black;
-    width: 75rem;
-  
-    @media (max-width: 850px) {
-      width: 50rem;
-    }
-  
-    @media (max-width: 462px) {
-      width: 100%;
-    }
-  }
+
   
   .form {
-    max-width: 75rem;
     margin: 0 auto;
     text-align: center;
   
@@ -71,7 +21,6 @@
     .inputField,
     .inputFieldFull {
       position: relative;
-      background-color: var(--second-bg-color);
     }
   
     .inputField {
@@ -91,9 +40,9 @@
       height: 100%;
       padding: 1.5rem;
       font-size: 1.6rem;
-      color: var(--text-color);
-      background: transparent;
-      border: 0.2rem solid lightgray;
+      color: var(--color-text-tertiary);
+      background: white;
+      border: unset;
       transition: border 0.3s ease;
   
       &::placeholder {
@@ -128,7 +77,6 @@
       position: relative;
       margin: 0.8rem 0 2.7rem;
       display: flex;
-      background-color: var(--second-bg-color);
     }
   
     .textarea {
@@ -136,9 +84,9 @@
       height: 100%;
       padding: 1.5rem;
       font-size: 1.6rem;
-      color: var(--text-color);
-      background: transparent;
-      border: 0.2rem solid lightgray;
+      color: var(--color-text-tertiary);
+      background: white;
+      border: unset;
       resize: none;
       transition: border 0.3s ease;
   
@@ -156,7 +104,6 @@
       position: relative;
       display: flex;
       justify-content: center;
-      width: 34.5rem;
       height: 5rem;
       margin-top: 2rem;
     }
@@ -168,15 +115,16 @@
       align-items: center;
       padding: 1rem;
       height: 100%;
-      background: #9eca65;
-      border: 0.2rem solid lightgray;
+      background: var(--color-accent);
+      border: 0.2rem solid var(--color-text-secondary);
       font-size: 1.8rem;
       font-weight: 600;
       letter-spacing: 0.1rem;
-      color: #555555;
+      color: var(--color-text-primary);
       z-index: 1;
       overflow: hidden;
       transition: background 0.3s ease, color 0.3s ease;
+      cursor: pointer;
   
       &:hover {
         background: var(--accent-color);

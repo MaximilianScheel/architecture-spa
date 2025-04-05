@@ -1,12 +1,13 @@
 /* globals.scss */
-
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
 /* -- SCSS-Variablen (Build-Time) -- */
 $color-bg: #ededed;
 $color-bg-secondary:  #555555;
 $color-text: white;
 $color-text-secondary: #555555;
-$color-main: #daff0d;
-$color-accent: #9eca65;
+$color-text-tertiary: #FF6B6B;
+$color-main: #FF6B6B;
+$color-accent: #FF6B6B;
 
 /* -- CSS Custom Properties (Run-Time) -- */
 :root {
@@ -14,6 +15,7 @@ $color-accent: #9eca65;
   --color-bg-secondary: #{$color-bg-secondary};
   --color-text: #{$color-text};
   --color-text-secondary: #{$color-text-secondary};
+  --color-text-tertiary: #{$color-text-tertiary};
   --color-main: #{$color-main};
   --color-accent: #{$color-accent};
 }
@@ -24,6 +26,7 @@ $color-accent: #9eca65;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
 }
 
 html {
@@ -33,12 +36,28 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.6rem;  
+  font-size: 1.4rem;  
   background-color: var(--color-bg);
   color: var(--color-text);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+section {
+  width: 100%;
+  color: var(--color-text-secondary);
+  scroll-margin-top: 190px;
+}
+
+h2 {
+  color: var(--color-text-tertiary);
+  margin: 7rem 0;
+  font-weight: normal;
+}
+
+p {
+  font-size: 1.4rem !important;
 }
 
 
@@ -59,10 +78,19 @@ img {
 }
 
 ul, ol {
-  list-style: none;
+  list-style: disc;
+  padding-left: 2rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
-  margin: 0;
+
+.swiper-button-prev, .swiper-button-next {
+  color: var(--color-text-tertiary)!important;
+
 }
+
+.swiper-pagination-bullet {
+  background: var(--color-text-tertiary)!important;
+
+}
+
+

@@ -3,31 +3,21 @@
 import * as Accordion from '@radix-ui/react-accordion';
 import architectureData from '../../data/architecture.json';
 import styles from './Architecture.module.scss';
+import Image from 'next/image';
+
 
 export default function ArchitecturePage() {
   return (
     <section className={styles.section} id="architecture">
       {/* Logo und Überschrift */}
       <div className={styles.logoWrapper}>
-        <img src={architectureData.logo} alt="Logo" />
-        <span className={styles.companyDescription}>
+        <h2 className={styles.companyDescription}>
           {architectureData.heading}
-        </span>
-      </div>
-
-      {/* Piktogramm */}
-      <div className={styles.imgWrapper}>
-        <img
-          src={architectureData.piktogramm}
-          alt="Piktogramm Architektur"
-        />
+        </h2>
       </div>
 
       {/* Leistungen */}
       <div className={styles.textWrapper}>
-        <h2 className={styles.headline}>
-          {architectureData.leistungenTitle}
-        </h2>
         {/* Da im Text HTML-Tags enthalten sind, nutzen wir dangerouslySetInnerHTML */}
         <p
           dangerouslySetInnerHTML={{
@@ -53,6 +43,14 @@ export default function ArchitecturePage() {
           </Accordion.Content>
         </Accordion.Item>
       </Accordion.Root>
+
+      <Image
+          src="/assets/Piktogram_Architektur.webp"
+          alt="Profilbild von Jacob Mau"
+          width={400}
+          height={400}
+          className={styles.profileImage}
+        />
 
       {/* Accordion für Projektübersicht */}
       <div className={styles.projectOverview}>
