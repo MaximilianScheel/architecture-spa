@@ -2,12 +2,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Footer.module.scss';
 
-const Footer = () => {
+export default function Footer () {
   return (
     <footer className={styles.footer}>
       <div className={styles.wrapper}>
       <div className={styles.homesci}>
-          <Link href="#aktuelles">
+          <Link href="/aktuelles">
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
@@ -51,5 +51,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

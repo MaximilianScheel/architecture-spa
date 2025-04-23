@@ -3,6 +3,7 @@
   .imgWrapper {
     display: flex;
     justify-content: center;
+    margin: 0 5rem;
   
     .descriptionBio {
       line-height: 1.6;
@@ -42,10 +43,7 @@
   }
   
   .wrapperContent {
-    display: flex;
-    align-items: center;
-    margin-top: 12rem;
-    padding-right: 12rem;
+    margin: 12rem 5rem 0 6rem;
   
     @media (max-width: 850px) {
       padding-right: 0;

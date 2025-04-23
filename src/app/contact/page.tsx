@@ -1,5 +1,3 @@
-// src/app/components/Contact/ContactSection.tsx
-
 'use client';
 
 import { useState, ChangeEvent, FormEvent } from 'react';
@@ -108,9 +106,9 @@ const ContactSection: React.FC = () => {
   return (
     <section className={styles.contact} id="contact">
       {/* Logo-Wrapper */}
-        
-        <h2 className={styles.companyDescription}>Kontakt</h2>
-      
+
+      <h2 className={styles.companyDescription}>Kontakt</h2>
+
 
       {/* Kontaktformular */}
       <form className={styles.form} onSubmit={handleSubmit} noValidate>
@@ -128,6 +126,10 @@ const ContactSection: React.FC = () => {
             <span className={styles.focus}></span>
             {errors.name && <span className={styles.error}>{errors.name}</span>}
           </div>
+
+        </div>
+        <div className={styles.inputBox}>
+
           <div className={styles.inputField}>
             <input
               type="email"
