@@ -90,7 +90,12 @@ ul, ol {
 
 .swiper-pagination-bullet {
   background: var(--color-text-tertiary)!important;
+}
 
+@media (max-width: 1500px) {
+  section {
+    padding: 0 2rem;
+  }  
 }
 
 
