@@ -1,12 +1,10 @@
 import type { Metadata } from 'next';
 import './globals.scss';
-import { Inter } from 'next/font/google';
 import pageModule from './Page.module.scss';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import StartAnimation from './components/StartAnimation';
 import ScrollHandler from './components/ScrollHandler';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Jacob Mau | Freier Architekt',
@@ -20,7 +18,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de">
-      <body className={inter.className}>
+      <body>
+        <StartAnimation />
         <Header />
         <div className={pageModule.container}>
           {children}

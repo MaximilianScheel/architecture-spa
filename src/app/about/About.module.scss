@@ -1,12 +1,12 @@
-
   
   .imgWrapper {
     display: flex;
     justify-content: center;
-    margin: 0 5rem;
+    margin: 0;
   
     .descriptionBio {
       line-height: 1.6;
+      font-size: 1.4rem;
     }
   
     .profileImage {
@@ -27,7 +27,7 @@
   
       .descriptionBio {
         padding-top: 4rem;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
       }
     }
   
@@ -37,13 +37,13 @@
       }
   
       .descriptionBio {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
       }
     }
   }
   
   .wrapperContent {
-    margin: 12rem 5rem 0 6rem;
+    margin: 4rem 0 0 0;
   
     @media (max-width: 850px) {
       padding-right: 0;
@@ -108,24 +108,15 @@
       border-radius: 0.6rem;
       margin-bottom: 5rem;
       overflow: hidden;
-      padding: 1rem;
-      background-color: #f9f9f9;
+      padding: 0 0 0 3rem;
   
       @media (max-width: 850px) {
         margin-bottom: 3rem;
       }
   
       p {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         color: var(--color-text-secondary);
-  
-        @media (max-width: 1200px) {
-          font-size: 1.4rem;
-        }
-  
-        @media (max-width: 520px) {
-          font-size: 1.2rem;
-        }
       }
     }
   }

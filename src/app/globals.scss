@@ -1,13 +1,21 @@
 /* globals.scss */
-@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Inter:wght@200;300;400;500;600&display=swap');
+
 /* -- SCSS-Variablen (Build-Time) -- */
 $color-bg: #ededed;
-$color-bg-secondary:  #555555;
-$color-text: white;
+$color-bg-secondary:  #191716; /* align header bg */
+$color-text: #ffffff;
 $color-text-secondary: #555555;
 $color-text-tertiary: #FF6B6B;
 $color-main: #FF6B6B;
 $color-accent: #FF6B6B;
+
+$container-max: 1440px;
+$container-padding-desktop: 2rem;
+$container-padding-mobile: 2rem;
+$header-height-desktop: 96px;
+$header-height-mobile: 72px;
 
 /* -- CSS Custom Properties (Run-Time) -- */
 :root {
@@ -18,6 +26,13 @@ $color-accent: #FF6B6B;
   --color-text-tertiary: #{$color-text-tertiary};
   --color-main: #{$color-main};
   --color-accent: #{$color-accent};
+
+  --font-headings: 'Didact Gothic', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  --container-max: #{$container-max};
+  --container-padding: #{$container-padding-desktop};
+  --header-height: #{$header-height-desktop};
 }
 
 *,
@@ -35,8 +50,10 @@ html {
 
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.4rem;  
+  font-family: var(--font-body);
+  font-weight: 200; /* Inter ExtraLight */
+  font-size: 1.4rem; /* base size aligned with p */
+  line-height: 1.6;
   background-color: var(--color-bg);
   color: var(--color-text);
 
@@ -44,27 +61,52 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Layout container applied in layout.tsx wraps all sections */
+.container, .pageContainer {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
 section {
   width: 100%;
   color: var(--color-text-secondary);
-  scroll-margin-top: 190px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  scroll-margin-top: var(--header-height);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-headings);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text-tertiary);
+  text-transform: lowercase;
+  font-style: italic;
 }
 
 h2 {
-  color: var(--color-text-tertiary);
-  margin: 7rem 0;
-  font-weight: normal;
+  margin: 2rem 0 6rem;
+  font-size: 2.2rem;
 }
 
+h1 { font-size: 2.6rem; margin: 2.5rem 0 1rem; }
+h3 { font-size: 1.8rem; margin: 1.5rem 0 0.75rem; }
+
 p {
-  font-size: 1.4rem !important;
+  font-size: 1.4rem; /* uniform paragraph size */
+  margin-bottom: 1rem;
 }
+
+li { font-size: inherit; line-height: 1.6; }
 
 
 a {
   color: inherit;            
   text-decoration: none;
-  font-size: 16px;
+  font-size: inherit;
 }
 
 a:hover {
@@ -92,10 +134,20 @@ ul, ol {
   background: var(--color-text-tertiary)!important;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1024px) {
+  :root {
+    --header-height: #{$header-height-mobile};
+  }
   section {
-    padding: 0 2rem;
-  }  
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-padding: #{$container-padding-mobile};
+  }
 }
 
 

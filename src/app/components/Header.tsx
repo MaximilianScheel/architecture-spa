@@ -6,11 +6,11 @@ import { usePathname } from 'next/navigation';
 import styles from './Header.module.scss';
 
 const NAV_ITEMS = [
-  { id: 'latest', label: 'Aktuelles' },
-  { id: 'architecture', label: 'Architektur' },
-  { id: 'energy-consulting', label: 'Energieberatung' },
-  { id: 'about', label: 'Profil' },
-  { id: 'contact', label: 'Kontakt' },
+  { id: 'latest', label: 'aktuelles' },
+  { id: 'architecture', label: 'architektur' },
+  { id: 'energy-consulting', label: 'energieberatung' },
+  { id: 'about', label: 'profil' },
+  { id: 'contact', label: 'kontakt' },
 ];
 
 export default function Header() {
@@ -23,19 +23,41 @@ export default function Header() {
   // IntersectionObserver nur auf der Home-Page
   useEffect(() => {
     if (!isHome) return;
-    const sections = document.querySelectorAll<HTMLElement>('section[id]');
+
+    // Beobachte pro Section die jeweilige Überschrift (h2) als Sentinel,
+    // damit der Nav-Active-State erst greift, wenn die Headline im Fokus ist.
+    const ids = NAV_ITEMS.map(i => i.id);
+    const sentinels: HTMLElement[] = [];
+    ids.forEach(id => {
+      const section = document.getElementById(id);
+      const h2 = section?.querySelector('h2');
+      const target = (h2 as HTMLElement) || section as HTMLElement | null;
+      if (target) {
+        // merke die zugehörige Section-ID am Element
+        (target as HTMLElement).dataset.sectionId = id;
+        sentinels.push(target as HTMLElement);
+      }
+    });
+
     const observer = new IntersectionObserver(
       entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        // wähle das Element, das am stärksten sichtbar ist
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => (b.intersectionRatio || 0) - (a.intersectionRatio || 0))[0];
+        const el = visible?.target as HTMLElement | undefined;
+        const id = el?.dataset.sectionId || el?.closest('section')?.id;
+        if (id) setActiveSection(id);
       },
-      { threshold: 0.3 }
+      {
+        // noch später aktivieren: Heading nahe am oberen Rand (~15% von oben)
+        rootMargin: '-85% 0px -15% 0px',
+        threshold: [0],
+      }
     );
-    sections.forEach(sec => observer.observe(sec));
-    return () => sections.forEach(sec => observer.unobserve(sec));
+
+    sentinels.forEach(el => observer.observe(el));
+    return () => sentinels.forEach(el => observer.unobserve(el));
   }, [isHome]);
 
   const closeMenu = () => setIsOpen(false);
@@ -98,7 +120,7 @@ export default function Header() {
 
         {/* Burger-Button mit drei Bars */}
         <button
-          className={`${styles.burgerBtn} ${isOpen ? styles.open : ''}`}
+          className={`${styles.burgerBtn} ${isOpen ? styles.burgerBtnOpen : ''}`}
           onClick={() => setIsOpen(o => !o)}
           aria-label={isOpen ? 'Menü schließen' : 'Menü öffnen'}
           aria-expanded={isOpen}
@@ -112,12 +134,12 @@ export default function Header() {
         {/* Navigation */}
         <nav
           id="primary-navigation"
-          className={`${styles.nav} ${isOpen ? styles.open : ''}`}
+          className={`${styles.nav} ${isOpen ? styles.navOpen : ''}`}
           aria-hidden={!isOpen}
         >
           {NAV_ITEMS.map(({ id, label }) => {
             const isActive = activeSection === id;
-            const className = `${styles.navLink} ${isActive ? styles.active : ''}`;
+            const className = `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`;
 
             return isHome ? (
               <a

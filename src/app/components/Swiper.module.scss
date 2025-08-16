@@ -1,7 +1,16 @@
-.swiper {
-    height: 70vh;
+.container { width: 100%; height: 60vh; }
+
+:global(.swiper-slide) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.swiper-button-prev {
-    color: var(--accent-color) !important;
-}
+:global(.swiper-button-prev),
+:global(.swiper-button-next) { color: var(--color-text-tertiary) !important; }
+
+:global(.swiper-pagination-bullet) { background: var(--color-text-tertiary) !important; }
+
+@media (max-width: 1024px) { .container { height: 50vh; } }
+@media (max-width: 600px) { .container { height: 40vh; } }

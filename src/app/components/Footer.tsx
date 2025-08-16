@@ -2,12 +2,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Footer.module.scss';
 
-export default function Footer () {
+export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.wrapper}>
-      <div className={styles.homesci}>
-          <Link href="/aktuelles">
+        <div className={styles.homeSci}>
+          <Link href="/#latest" scroll={false}>
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
@@ -28,9 +28,8 @@ export default function Footer () {
           </Link>
           <p>j a c o b  m a u</p>
         </div>
-      
-      <div className={styles.footerText}>
-        <Link href="/legal-notice">
+
+        <div className={styles.footerText}>
           <p className={styles.footerParagraph}>
             architektur <br />
             energieberatung<br /><br />
@@ -41,12 +40,11 @@ export default function Footer () {
             planung&#64;jacobmau.de<br />
             www.jacobmau.de
           </p>
-        </Link>
-      </div>
-      
-      <div className={styles.dataProtect}>
-        <Link href="/datenschutz">datenschutz</Link>
-      </div>
+        </div>
+
+        <div className={styles.dataProtect}>
+          <Link href="/datenschutz">datenschutz</Link>
+        </div>
       </div>
     </footer>
   );

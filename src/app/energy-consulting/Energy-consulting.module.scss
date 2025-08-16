@@ -1,18 +1,16 @@
-
   
   .textWrapper {
-    margin: 0 10rem;
+    margin: 0;
 
     .leistungenTitle {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      /* inherit global heading styles */
     }
   
     .leistungenText {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       line-height: 1.6;
-      margin-bottom: 5rem;
+      margin-bottom: 2rem;
     }
   }
 
@@ -32,19 +30,11 @@
   /* Responsive Anpassungen */
   @media (max-width: 768px) {
     .section {
-      padding: 2rem 1rem;
-    }
-  
-    .heading {
-      font-size: 1.6rem;
-    }
-  
-    .leistungenTitle {
-      font-size: 1.6rem;
+      padding: 2rem 0;
     }
   
     .leistungenText {
-      font-size: 1.4rem;
+      font-size: 1rem;
     }
   }
   

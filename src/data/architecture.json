@@ -1,0 +1,55 @@
+{
+    "heading": "architektur",
+    "logo": "/assets/logo-black.svg",
+    "piktogramm": "/assets/pikto_architektur.png",
+    "leistungenTitle": "leistungen",
+    "leistungenText": "die planung und betreuung ihres bauvorhabens bildet den kern meiner arbeit. gemäß den leistungsphasen 1-7 der hoai werde ich sie von den ersten ideen bis zur realisierung ihres bauvorhabens unterstützen. besonderes augenmerk lege ich dabei auf die qualität des entwurfes, die sich auch in den gebauten details wiederfinden wird. eine vollumfängliche baubegleitung entsprechend der lph 8 biete ich nicht an. dafür kann ich ihnen starke partner aus meinem netzwerk von fachingenieuren, planern und handwerkern empfehlen. zusätzlich zu den architektenleistungen biete ich auch <a href=\"#energy-consulting\">energieberatung</a> für ihr objekt an.",
+    "lphTitle": "leistungsphasen nach hoai",
+    "lphItems": [
+      "LPH1 Grundlagenermittlung",
+      "LPH2 Vorplanung",
+      "LPH3 Entwurfsplanung",
+      "LPH4 Genehmigungsplanung",
+      "LPH5 Ausführungsplanung",
+      "LPH6 Vorbereitung der Vergabe",
+      "LPH7 Mitwirkung bei der Vergabe",
+      "LPH8 Objektüberwachung – Bauüberwachung und Dokumentation",
+      "LPH9 Objektbetreuung"
+    ],
+    "projektuebersichtTitle": "projektübersicht",
+    "projects": [
+      {
+        "year": 2024,
+        "items": [
+          "Umbau & Erweiterung einer Doppelhaushälfte, Stralsund, derzeit lp 2",
+          "Energieberatung für Wohngebäude in berlin, brandenburg und mecklenburg vorpommern"
+        ]
+      },
+      {
+        "year": 2023,
+        "items": [
+          "Umnutzung einer Bäckerei in Berlin, LPH 4",
+          "Umbau des Dachgeschosses im Denkmal, LPH 5",
+          "Umbau einer Scheune in Letschin, LPH 1-4 (derzeit LPH 2)",
+          "Denkmalgerechte Detailplanung einer Fassade in Staaken"
+        ]
+      },
+      {
+        "year": 2022,
+        "items": [
+          "Umbau einer Scheune in Schiaß, LPH 5-7",
+          "Umbau eines Ferienhauses, LPH 1-4",
+          "Neubau von 2 Doppelhäusern in Ahrensfelde, LPH 5"
+        ]
+      },
+      {
+        "year": 2021,
+        "items": [
+          "Neubau eines Wohnhauses in Stralsund, LPH 1-7 (derzeit LPH 5 & 6)",
+          "Denkmalgerechte Erweiterung eines Ackerbürgerhauses in Stralsund, bis LPH 3",
+          "Erweiterung einer Doppelhaushälfte in Stralsund, bis LPH 3"
+        ]
+      }
+    ]
+  }
+  

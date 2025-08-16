@@ -1,5 +1,5 @@
 .header {
-  background-color: #191716;
+  background-color: var(--color-bg-secondary);
   position: sticky;
   top: 0;
   z-index: 999;
@@ -9,7 +9,7 @@
 }
 
 .headerWrapper {
-  max-width: 1440px;
+  max-width: var(--container-max);
   width: 100%;
   margin: 0 auto;
 
@@ -50,17 +50,11 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
 }
-
-.burgerBtn.open {
-  span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-  }
-  span:nth-child(2) {
-    opacity: 0;
-  }
-  span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-  }
+/* exported modifier for open state */
+.burgerBtnOpen {
+  span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  span:nth-child(2) { opacity: 0; }
+  span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 }
 
 /* Desktop-Navigation */
@@ -77,15 +71,16 @@
   color: var(--color-text);
   text-decoration: none;
   transition: color 0.3s ease;
+  font-family: var(--font-headings);
+  font-weight: bold;
+  font-style: italic;
 
   &:hover {
     color: var(--color-accent);
   }
-
-  &.active {
-    color: var(--color-accent);
-  }
 }
+/* exported modifier for active link */
+.navLinkActive { color: var(--color-accent); }
 
 /* Mobile */
 @media (max-width: 768px) {
@@ -96,7 +91,7 @@
   .nav {
     /* statt display:none */
     position: absolute;
-    top: 96px;
+    top: var(--header-height);
     right: 0;
     background-color: var(--color-bg-secondary);
     flex-direction: column;
@@ -112,8 +107,8 @@
     transition: transform 0.4s ease, opacity 0.4s ease;
   }
 
-  .nav.open {
-    /* End-Zustand */
+  /* exported modifier for nav open */
+  .navOpen {
     transform: translateX(0);
     opacity: 1;
     pointer-events: auto;

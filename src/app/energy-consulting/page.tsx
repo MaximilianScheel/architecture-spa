@@ -8,7 +8,7 @@ export default function EnergyConsultingSection() {
   return (
     <section
       className={styles.section}
-      id="energyConsulting"
+      id="energy-consulting"
     >
       <div className={styles.logoWrapper}>
         <h2 className={styles.heading}>{energyConsulting.heading}</h2>

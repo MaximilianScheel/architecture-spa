@@ -1,0 +1,51 @@
+/* Vollbild-Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  overflow: hidden;
+}
+
+/* Gemeinsame Styles für alle Bilder */
+.image {
+  position: absolute;
+  max-width: 80vw;
+  max-height: 80vh;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Gesamt­dauer der Animation */
+$D: 6s;
+
+/* Bild 1: 0–2 s voll, 2–3 s ausfaden */
+.image1 {
+  animation: fade1 $D ease-in-out forwards;
+}
+@keyframes fade1 {
+  0%, 33.333%   { opacity: 1; }
+  50%, 100%    { opacity: 0; }
+}
+
+/* Bild 2: 2–3 s einfaden, 3–4 s voll, 4–5 s ausfaden */
+.image2 {
+  animation: fade2 $D ease-in-out forwards;
+}
+@keyframes fade2 {
+  0%, 33.333%    { opacity: 0; }
+  50%, 66.667%   { opacity: 1; }
+  83.333%, 100%  { opacity: 0; }
+}
+
+/* Bild 3: 4–5 s einfaden, 5–6 s voll (nur 1 Sekunde) */
+.image3 {
+  animation: fade3 $D ease-in-out forwards;
+}
+@keyframes fade3 {
+  0%, 66.667%    { opacity: 0; }
+  83.333%, 100%  { opacity: 1; }
+}

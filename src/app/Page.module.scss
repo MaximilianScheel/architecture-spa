@@ -2,4 +2,7 @@
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
 }

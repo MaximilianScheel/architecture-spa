@@ -5,6 +5,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import styles from './Swiper.module.scss';
 
 const slides = [
   { img: '/assets/Slider_Apfelweg_1.webp', caption: 'Slide 1' },
@@ -20,16 +21,16 @@ export default function MySwiper() {
       spaceBetween={30}
       navigation
       pagination={{ clickable: true }}
-      autoplay={{ delay: 100000, disableOnInteraction: false }}
+      autoplay={{ delay: 5000, disableOnInteraction: false }}
       loop
-      style={{ width: '100%', height: '65vh' }}
+      className={styles.container}
     >
       {slides.map((slide, index) => (
         <SwiperSlide key={index}>
           <img
             src={slide.img}
             alt={slide.caption}
-            style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+            loading="lazy"
           />
         </SwiperSlide>
       ))}
