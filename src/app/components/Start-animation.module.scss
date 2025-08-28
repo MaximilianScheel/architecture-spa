@@ -1,13 +1,18 @@
 /* Vollbild-Overlay */
 .overlay {
   position: fixed;
-  inset: 0;
-  background: #000;
+  inset: 0; /* avoid 100vw/100vh which can cause mobile overflow */
+  background: #191716;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10000;
   overflow: hidden;
+  border: 0;
+  outline: 0;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  isolation: isolate;
 }
 
 /* Gemeinsame Styles für alle Bilder */
@@ -17,6 +22,9 @@
   max-height: 80vh;
   opacity: 0;
   pointer-events: none;
+  background: transparent;
+  will-change: opacity, transform;
+  z-index: 1; /* render above overlay ::after */
 }
 
 /* Gesamt­dauer der Animation */

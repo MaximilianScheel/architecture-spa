@@ -2,7 +2,7 @@
 
 .contact {
   color: var(--color-text-secondary);
-  margin-bottom: 6rem;
+  margin-bottom: 10rem;
 }
 
 .form {
@@ -29,6 +29,7 @@
     height: 100%;
     padding: 1rem;
     font-size: 1rem;
+    font-family: var(--font-body);
     color: var(--color-text-secondary);
     background: #ffffff;
     border: 1px solid transparent;
@@ -60,6 +61,7 @@
     height: 100%;
     padding: 1rem;
     font-size: 1rem;
+    font-family: var(--font-body);
     color: var(--color-text-secondary);
     background: #ffffff;
     border: 1px solid transparent;

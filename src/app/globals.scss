@@ -61,6 +61,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Prevent horizontal scrollbars from any overflowing child */
+html, body { overflow-x: hidden; max-width: 100%; }
+
 /* Layout container applied in layout.tsx wraps all sections */
 .container, .pageContainer {
   max-width: var(--container-max);
@@ -88,12 +91,12 @@ h1, h2, h3 {
 }
 
 h2 {
-  margin: 2rem 0 6rem;
+  margin: 8rem 0 6rem;
   font-size: 2.2rem;
 }
 
 h1 { font-size: 2.6rem; margin: 2.5rem 0 1rem; }
-h3 { font-size: 1.8rem; margin: 1.5rem 0 0.75rem; }
+h3 { font-size: 1.8rem; margin: 1.5rem 0 0; }
 
 p {
   font-size: 1.4rem; /* uniform paragraph size */
@@ -117,6 +120,14 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* While start animation is active, force pure black background and disable scroll
+   to prevent any visible frame/mismatch */
+.start-anim-active,
+.start-anim-active body {
+  background: #000 !important;
+  overflow: hidden;
 }
 
 ul, ol {

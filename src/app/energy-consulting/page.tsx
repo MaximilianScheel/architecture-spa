@@ -15,7 +15,10 @@ export default function EnergyConsultingSection() {
       </div>
 
       <div className={styles.textWrapper}>
-        <p className={styles.leistungenText}>{energyConsulting.leistungenText}</p>
+        <p
+          className={styles.leistungenText}
+          dangerouslySetInnerHTML={{ __html: energyConsulting.leistungenText }}
+        />
       </div>
       <div className={styles.imgWrapper}>
         <Image

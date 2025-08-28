@@ -15,13 +15,14 @@ export default function Footer() {
               viewBox="0 0 110 110"
               width="96"
               height="96"
+              shapeRendering="geometricPrecision"
               enableBackground="new 0 0 110 110"
               xmlSpace="preserve"
             >
               <style type="text/css">
-                {`.st1 { fill: none; stroke: #FF6B6B; stroke-miterlimit: 10; }`}
+                {`.st1 { fill: none; stroke: var(--color-accent); stroke-miterlimit: 10; stroke-width: 1.5; vector-effect: non-scaling-stroke; shape-rendering: geometricPrecision; }`}
               </style>
-              <path className="st1" d="M105,95.9H5V14.5h100V95.9z M18.6,84l10.3-57.6h-3.2L15.4,84H18.6z M32.5,84l10.3-57.6h-3.2L29.3,84H32.5z
+              <path className="st1" vectorEffect="non-scaling-stroke" strokeWidth={1.5} d="M105,95.9H5V14.5h100V95.9z M18.6,84l10.3-57.6h-3.2L15.4,84H18.6z M32.5,84l10.3-57.6h-3.2L29.3,84H32.5z
               M46.3,84L55,35.3L63.8,84H67L56.6,26.4h-3.2L43.2,84H46.3z M80.8,84L70.5,26.4h-3.2L77.6,84H80.8z M94.7,84L84.4,26.4h-3.2L91.5,84
               H94.7z"/>
             </svg>

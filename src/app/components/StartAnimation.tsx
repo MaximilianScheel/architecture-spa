@@ -12,6 +12,19 @@ export default function StartAnimation() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Force page background to black while animation is active to avoid any frame
+  useEffect(() => {
+    const cls = 'start-anim-active';
+    if (!hidden) {
+      document.documentElement.classList.add(cls);
+    } else {
+      document.documentElement.classList.remove(cls);
+    }
+    return () => {
+      document.documentElement.classList.remove(cls);
+    };
+  }, [hidden]);
+
   if (hidden) return null;
 
   return (

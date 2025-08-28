@@ -13,8 +13,9 @@ type AboutData = {
 const FALLBACK: AboutData = {
   heading: 'Profil',
   bio:
-    'alle müssen wohnen & jeder ort ist anders. mit den individuellen anforderungen der auftraggebenden und den spezifischen gegebenheiten des jeweiligen ortes zeitgemäße architektur zu gestalten, habe ich mir zur aufgabe gemacht.',
+    'Mit Ihren individuellen Anforderungen und den spezifischen Gegebenheiten des jeweiligen Ortes zeitgemäße und ressourcenschonende Architektur zu gestalten, habe ich mir zur Aufgabe gemacht.', 
   milestones: [
+    '2024		Ausrichtung auf ökologisches Bauen, hauptsächlich Holzbau',
     '2023 Eintragung in die Liste der Energieeffizienz-Experten',
     '2022 Bauvorlageberechtigt',
     'seit 2021 Selbstständig als Architekt',
@@ -33,16 +34,8 @@ export default function AboutSection() {
         <h2 className={styles.companyDescription}>{data.heading}</h2>
       </div>
 
-      {/* Image-Wrapper */}
       <div className={styles.imgWrapper}>
         <p className={styles.descriptionBio}>{data.bio}</p>
-        <Image
-          src="/assets/profile.png"
-          alt="Profilbild von Jacob Mau"
-          width={400}
-          height={400}
-          className={styles.profileImage}
-        />
       </div>
 
       {/* Wrapper-Content */}

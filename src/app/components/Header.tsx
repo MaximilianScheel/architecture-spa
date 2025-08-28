@@ -24,40 +24,70 @@ export default function Header() {
   useEffect(() => {
     if (!isHome) return;
 
-    // Beobachte pro Section die jeweilige Überschrift (h2) als Sentinel,
-    // damit der Nav-Active-State erst greift, wenn die Headline im Fokus ist.
     const ids = NAV_ITEMS.map(i => i.id);
-    const sentinels: HTMLElement[] = [];
-    ids.forEach(id => {
-      const section = document.getElementById(id);
-      const h2 = section?.querySelector('h2');
-      const target = (h2 as HTMLElement) || section as HTMLElement | null;
-      if (target) {
-        // merke die zugehörige Section-ID am Element
-        (target as HTMLElement).dataset.sectionId = id;
-        sentinels.push(target as HTMLElement);
-      }
-    });
+    const getHeaderHeight = () => {
+      const raw = getComputedStyle(document.documentElement)
+        .getPropertyValue('--header-height')
+        .trim();
+      const parsed = parseInt(raw, 10);
+      return Number.isFinite(parsed) ? parsed : 96;
+    };
 
-    const observer = new IntersectionObserver(
-      entries => {
-        // wähle das Element, das am stärksten sichtbar ist
-        const visible = entries
-          .filter(e => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio || 0) - (a.intersectionRatio || 0))[0];
-        const el = visible?.target as HTMLElement | undefined;
-        const id = el?.dataset.sectionId || el?.closest('section')?.id;
-        if (id) setActiveSection(id);
-      },
-      {
-        // noch später aktivieren: Heading nahe am oberen Rand (~15% von oben)
-        rootMargin: '-85% 0px -15% 0px',
-        threshold: [0],
-      }
-    );
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const headerH = getHeaderHeight();
+        const offset = headerH + 8; // kleiner Puffer unter dem Header
+        const lineYAbs = window.scrollY + offset; // absolute Dokumentposition der Linie
 
-    sentinels.forEach(el => observer.observe(el));
-    return () => sentinels.forEach(el => observer.unobserve(el));
+        // finde die Section, die diese Linie "enthält" (Top/Bottom in Dokumentkoordinaten)
+        let current = ids[0];
+        const positions = ids
+          .map(id => {
+            const el = document.getElementById(id);
+            if (!el) return null;
+            const rect = el.getBoundingClientRect();
+            const top = rect.top + window.scrollY; // absolute Dokumentkoordinate
+            const height = el.offsetHeight;
+            const bottom = top + height;
+            return { id, top, bottom };
+          })
+          .filter(Boolean) as { id: string; top: number; bottom: number }[];
+
+        // wenn oberhalb der ersten Section
+        if (positions.length) {
+          const first = positions[0];
+          const second = positions[1];
+          if (second && lineYAbs < second.top) {
+            current = first.id; // bis zur zweiten Section bleibt 'latest'
+          } else if (lineYAbs < first.top + 1) {
+            current = first.id;
+          } else {
+          for (const p of positions) {
+            if (lineYAbs >= p.top && lineYAbs < p.bottom) {
+              current = p.id;
+              break;
+            }
+            if (lineYAbs >= p.bottom) {
+              current = p.id; // wir sind darunter, gehe weiter
+            }
+          }
+          }
+        }
+        setActiveSection(current);
+        ticking = false;
+      });
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll(); // initial bestimmen
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, [isHome]);
 
   const closeMenu = () => setIsOpen(false);
@@ -80,10 +110,13 @@ export default function Header() {
                 viewBox="0 0 110 110"
                 width="96"
                 height="96"
+                shapeRendering="geometricPrecision"
               >
-                <style>{`.st0 { fill: none; stroke: white !important; stroke-miterlimit: 10; }`}</style>
+                <style>{`.st0 { fill: none; stroke: white !important; stroke-miterlimit: 10; stroke-width: 1.5; vector-effect: non-scaling-stroke; shape-rendering: geometricPrecision; stroke-linecap: square; stroke-linejoin: miter; }`}</style>
                 <path
                   className="st0"
+                  vectorEffect="non-scaling-stroke"
+                  strokeWidth={1.5}
                   d="M105,95.9H5V14.5h100V95.9z
                      M18.6,84l10.3-57.6h-3.2L15.4,84H18.6z
                      M32.5,84l10.3-57.6h-3.2L29.3,84H32.5z
@@ -102,10 +135,13 @@ export default function Header() {
                 viewBox="0 0 110 110"
                 width="96"
                 height="96"
+                shapeRendering="geometricPrecision"
               >
-                <style>{`.st0 { fill: none; stroke: white !important; stroke-miterlimit: 10; }`}</style>
+                <style>{`.st0 { fill: none; stroke: white !important; stroke-miterlimit: 10; stroke-width: 1.5; vector-effect: non-scaling-stroke; shape-rendering: geometricPrecision; }`}</style>
                 <path
                   className="st0"
+                  vectorEffect="non-scaling-stroke"
+                  strokeWidth={1.5}
                   d="M105,95.9H5V14.5h100V95.9z
                      M18.6,84l10.3-57.6h-3.2L15.4,84H18.6z
                      M32.5,84l10.3-57.6h-3.2L29.3,84H32.5z
