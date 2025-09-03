@@ -8,17 +8,10 @@ import Image from 'next/image';
 
 export default function ArchitecturePage() {
   return (
-    <section className={styles.section} id="architecture">
-      {/* Logo und Überschrift */}
-      <div className={styles.logoWrapper}>
-        <h2 className={styles.companyDescription}>
-          {architectureData.heading}
-        </h2>
-      </div>
+    <section id="architecture">
+      <h2>{architectureData.heading}</h2>
 
-      {/* Leistungen */}
       <div className={styles.textWrapper}>
-        {/* Da im Text HTML-Tags enthalten sind, nutzen wir dangerouslySetInnerHTML */}
         <p
           dangerouslySetInnerHTML={{
             __html: architectureData.leistungenText,
@@ -26,7 +19,6 @@ export default function ArchitecturePage() {
         />
       </div>
 
-      {/* Accordion für Leistungsphasen (LPH) */}
       <Accordion.Root type="single" collapsible className={styles.accordionRoot}>
         <Accordion.Item value="lph">
           <Accordion.Header className={styles.accordionHeader}>
@@ -46,13 +38,12 @@ export default function ArchitecturePage() {
       <div className={styles.imgWrapper}>
         <Image
           src="/assets/Piktogram_Architektur.webp"
-          alt="Architektur Piktogramu"
+          alt="Architektur Piktogramm"
           width={400}
           height={400}
           className={styles.profileImage}
         />
       </div>
-      {/* Accordion für Projektübersicht */}
       <div className={styles.projectOverview}>
         <h2 className={styles.headline}>
           {architectureData.projektuebersichtTitle}

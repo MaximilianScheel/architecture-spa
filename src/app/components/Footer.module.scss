@@ -1,5 +1,5 @@
 .footer {
-  background-color: #ffffff;
+  background-color: var(--color-surface);
   color: var(--color-text-tertiary);
   position: relative;
   padding-top: 2rem;
@@ -17,7 +17,6 @@
     flex-wrap: wrap;
     padding-left: var(--container-padding);
     padding-right: var(--container-padding);
-    /* allow datenschutz to anchor to footer instead */
     position: static;
   }
 }
@@ -27,7 +26,7 @@
 
 .footerText {
   position: relative;
-  margin-left: auto; /* push to the right on desktop */
+  margin-left: auto;
   p { line-height: 1.6; font-size: 1.4rem; }
 }
 
@@ -39,7 +38,6 @@
 
 .homeSci img { width: 100px; height: 90px; }
 
-/* Place datenschutz bottom-right on desktop */
 .dataProtect {
   position: absolute;
   right: 0;
@@ -52,5 +50,3 @@
   .dataProtect { position: static; right: auto; bottom: auto; margin-left: 0; }
   .footerParagraph { padding-top: 1rem; padding-bottom: 1rem; text-align: center; }
 }
-
-/* Desktop: no reserved space needed when absolute */

@@ -6,21 +6,18 @@ import styles from './Energy-consulting.module.scss';
 
 export default function EnergyConsultingSection() {
   return (
-    <section
-      className={styles.section}
-      id="energy-consulting"
-    >
+    <section className={styles.section} id="energy-consulting">
       <div className={styles.logoWrapper}>
         <h2 className={styles.heading}>{energyConsulting.heading}</h2>
       </div>
 
       <div className={styles.textWrapper}>
         <p
-          className={styles.leistungenText}
+          className={styles.servicesText}
           dangerouslySetInnerHTML={{ __html: energyConsulting.leistungenText }}
         />
       </div>
-      <div className={styles.imgWrapper}>
+      <div className={styles.imageWrapper}>
         <Image
           src="/assets/Piktogramm_Energieberatung.webp"
           alt="Profilbild von Jacob Mau"

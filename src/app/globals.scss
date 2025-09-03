@@ -1,15 +1,16 @@
-/* globals.scss */
-/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Inter:wght@200;300;400;500;600&display=swap');
 
-/* -- SCSS-Variablen (Build-Time) -- */
 $color-bg: #ededed;
-$color-bg-secondary:  #191716; /* align header bg */
+$color-bg-secondary:  #191716;
 $color-text: #ffffff;
 $color-text-secondary: #555555;
 $color-text-tertiary: #FF6B6B;
 $color-main: #FF6B6B;
 $color-accent: #FF6B6B;
+$color-surface: #ffffff;
+// derived
+$color-bg-muted: lighten($color-bg, 8%);
+$color-accent-hover: lighten($color-accent, 8%);
 
 $container-max: 1440px;
 $container-padding-desktop: 2rem;
@@ -17,7 +18,6 @@ $container-padding-mobile: 2rem;
 $header-height-desktop: 96px;
 $header-height-mobile: 72px;
 
-/* -- CSS Custom Properties (Run-Time) -- */
 :root {
   --color-bg: #{$color-bg};
   --color-bg-secondary: #{$color-bg-secondary};
@@ -26,6 +26,9 @@ $header-height-mobile: 72px;
   --color-text-tertiary: #{$color-text-tertiary};
   --color-main: #{$color-main};
   --color-accent: #{$color-accent};
+  --color-surface: #{$color-surface};
+  --color-bg-muted: #{$color-bg-muted};
+  --color-accent-hover: #{$color-accent-hover};
 
   --font-headings: 'Didact Gothic', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -51,8 +54,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-weight: 200; /* Inter ExtraLight */
-  font-size: 1.4rem; /* base size aligned with p */
+  font-weight: 200;
+  font-size: 1.4rem;
   line-height: 1.6;
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -61,10 +64,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Prevent horizontal scrollbars from any overflowing child */
 html, body { overflow-x: hidden; max-width: 100%; }
 
-/* Layout container applied in layout.tsx wraps all sections */
 .container, .pageContainer {
   max-width: var(--container-max);
   margin-left: auto;
@@ -122,8 +123,6 @@ img {
   display: block;
 }
 
-/* While start animation is active, force pure black background and disable scroll
-   to prevent any visible frame/mismatch */
 .start-anim-active,
 .start-anim-active body {
   background: #000 !important;

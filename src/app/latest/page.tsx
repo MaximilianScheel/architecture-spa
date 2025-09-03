@@ -23,15 +23,12 @@ export default function LatestSection() {
   return (
     <section className={styles.latestWrapper} id="latest">
       <div>
-        <h2>aktuelles</h2>
+        <h1>{(latest as any).heading}</h1>
       </div>
 
-      {/* Parower zuerst */}
       <div className={styles.sliderBlock}>
         <Swiper images={parowerImages} caption={captionOne} />
       </div>
-
-      {/* Apfelweg darunter */}
       <div className={styles.sliderBlock}>
         <Swiper images={apfelwegImages} caption={captionTwo} />
       </div>

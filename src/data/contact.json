@@ -1,0 +1,18 @@
+{
+  "heading": "Kontakt",
+  "placeholders": {
+    "name": "Vor- und Nachname",
+    "email": "E-Mail",
+    "subject": "Fachrichtung",
+    "message": "Projektbeschreibung"
+  },
+  "errors": {
+    "nameRequired": "Bitte Namen eintragen",
+    "emailRequired": "Bitte gültige Mail-Adresse eintragen",
+    "emailInvalid": "Ungültige Mail-Adresse",
+    "subjectRequired": "Bitte Fachrichtung eintragen",
+    "messageRequired": "Bitte kurze Projektbeschreibung eintragen"
+  },
+  "submit": "Nachricht senden",
+  "success": "Nachricht erfolgreich gesendet!"
+}

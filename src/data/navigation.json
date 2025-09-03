@@ -1,0 +1,9 @@
+{
+  "items": [
+    { "id": "latest", "label": "aktuelles" },
+    { "id": "architecture", "label": "architektur" },
+    { "id": "energy-consulting", "label": "energieberatung" },
+    { "id": "about", "label": "profil" },
+    { "id": "contact", "label": "kontakt" }
+  ]
+}

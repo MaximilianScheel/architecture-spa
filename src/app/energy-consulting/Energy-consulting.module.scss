@@ -2,18 +2,18 @@
   .textWrapper {
     margin: 0;
 
-    .leistungenTitle {
+    .servicesTitle {
       margin-bottom: 0.75rem;
     }
-  
-    .leistungenText {
+
+    .servicesText {
       font-size: 1.4rem;
       line-height: 1.6;
       margin-bottom: 6rem;
     }
   }
 
-  .imgWrapper {
+  .imageWrapper {
     display: flex;
     justify-content: center;
     margin-bottom: 3rem;
@@ -25,14 +25,8 @@
     }
   }
   
-  /* Responsive Anpassungen */
   @media (max-width: 768px) {
-    .section {
-      padding: 2rem 0;
-    }
-  
-    .leistungenText {
+    .servicesText {
       font-size: 1rem;
     }
   }
-  

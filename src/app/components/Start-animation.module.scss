@@ -1,8 +1,7 @@
-/* Vollbild-Overlay */
 .overlay {
   position: fixed;
-  inset: 0; /* avoid 100vw/100vh which can cause mobile overflow */
-  background: #191716;
+  inset: 0;
+  background: var(--color-bg-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +14,6 @@
   isolation: isolate;
 }
 
-/* Gemeinsame Styles für alle Bilder */
 .image {
   position: absolute;
   max-width: 80vw;
@@ -27,10 +25,8 @@
   z-index: 1; /* render above overlay ::after */
 }
 
-/* Gesamt­dauer der Animation */
 $D: 6s;
 
-/* Bild 1: 0–2 s voll, 2–3 s ausfaden */
 .image1 {
   animation: fade1 $D ease-in-out forwards;
 }
@@ -39,7 +35,6 @@ $D: 6s;
   50%, 100%    { opacity: 0; }
 }
 
-/* Bild 2: 2–3 s einfaden, 3–4 s voll, 4–5 s ausfaden */
 .image2 {
   animation: fade2 $D ease-in-out forwards;
 }
@@ -49,7 +44,6 @@ $D: 6s;
   83.333%, 100%  { opacity: 0; }
 }
 
-/* Bild 3: 4–5 s einfaden, 5–6 s voll (nur 1 Sekunde) */
 .image3 {
   animation: fade3 $D ease-in-out forwards;
 }
