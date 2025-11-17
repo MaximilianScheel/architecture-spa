@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from './Start-animation.module.scss';
+import styles from './start-animation.module.scss';
 
 export default function StartAnimation() {
   const [hidden, setHidden] = useState(false);

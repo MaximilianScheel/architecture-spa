@@ -2,7 +2,7 @@
 
 import { useState, ChangeEvent, FormEvent } from 'react';
 import Image from 'next/image';
-import styles from './Contact.module.scss';
+import styles from './contact.module.scss';
 
 interface FormData {
   name: string;
@@ -112,8 +112,8 @@ const ContactSection: React.FC = () => {
 
       {/* Kontaktformular */}
       <form className={styles.form} onSubmit={handleSubmit} noValidate>
-        <div className={styles.inputBox}>
-          <div className={styles.inputField}>
+        <div className={styles['input-box']}>
+          <div className={styles['input-field']}>
             <input
               type="text"
               name="name"
@@ -128,9 +128,9 @@ const ContactSection: React.FC = () => {
           </div>
 
         </div>
-        <div className={styles.inputBox}>
+        <div className={styles['input-box']}>
 
-          <div className={styles.inputField}>
+          <div className={styles['input-field']}>
             <input
               type="email"
               name="email"
@@ -145,8 +145,8 @@ const ContactSection: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.inputBox}>
-          <div className={styles.inputFieldFull}>
+        <div className={styles['input-box']}>
+          <div className={styles['input-field-full']}>
             <input
               type="text"
               name="emailSubject"
@@ -163,7 +163,7 @@ const ContactSection: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.textareaField}>
+        <div className={styles['textarea-field']}>
           <textarea
             name="message"
             placeholder="Projektbeschreibung"
@@ -177,15 +177,14 @@ const ContactSection: React.FC = () => {
           {errors.message && <span className={styles.error}>{errors.message}</span>}
         </div>
 
-        <div className={styles.btnBox}>
-          <button type="submit" className={styles.btn} disabled={isSubmitted}>
+        <div className={styles['button-box']}>
+          <button type="submit" className={styles.button} disabled={isSubmitted}>
             Nachricht senden
           </button>
-          <span className={styles.animateScroll} style={{ '--i': 9 } as React.CSSProperties}></span>
         </div>
 
         {messageSent && (
-          <div className={styles.messageBox}>
+          <div className={styles['message-box']}>
             <p>Nachricht erfolgreich gesendet!</p>
           </div>
         )}

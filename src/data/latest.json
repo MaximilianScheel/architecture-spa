@@ -1,5 +1,24 @@
 {
   "heading": "aktuelles",
-  "sliderCaptionOne": "/// Neubau eines strohgedämmten Wohngebäudes mit 2 Wohneinheiten, derzeit LPH 5",
-  "sliderCaptionTwo": "/// Sanierung und Erweiterung einer Doppelhaushälfte, derzeit LPH 8"
+  "projects": [
+    {
+      "id": "parower",
+      "caption": "/// Neubau eines strohgedämmten Wohngebäudes mit 2 Wohneinheiten, derzeit LPH 5",
+      "images": [
+        "/assets/Slider_Parower_1.webp",
+        "/assets/Slider_Parower_2.webp",
+        "/assets/Slider_Parower_3.webp"
+      ]
+    },
+    {
+      "id": "apfelweg",
+      "caption": "/// Sanierung und Erweiterung einer Doppelhaushälfte, derzeit LPH 8",
+      "images": [
+        "/assets/Slider_Apfelweg_1.webp",
+        "/assets/Slider_Apfelweg_2.webp",
+        "/assets/Slider_Apfelweg_3.webp",
+        "/assets/Slider_Apfelweg_4.webp"
+      ]
+    }
+  ]
 }

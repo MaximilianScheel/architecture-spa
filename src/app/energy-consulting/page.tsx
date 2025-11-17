@@ -1,29 +1,29 @@
 'use client';
 
 import Image from 'next/image';
-import energyConsulting from '../../data/energy-consulting.json';
-import styles from './Energy-consulting.module.scss';
+import energyConsultingData from '../../data/energy-consulting.json';
+import styles from './energy-consulting.module.scss';
 
 export default function EnergyConsultingSection() {
   return (
-    <section className={styles.section} id="energy-consulting">
-      <div className={styles.logoWrapper}>
-        <h2 className={styles.heading}>{energyConsulting.heading}</h2>
+    <section id="energy-consulting">
+      <div>
+        <h2>{energyConsultingData.heading}</h2>
       </div>
 
-      <div className={styles.textWrapper}>
+      <div className={styles['text-wrapper']}>
         <p
-          className={styles.servicesText}
-          dangerouslySetInnerHTML={{ __html: energyConsulting.leistungenText }}
+          className={styles['services-text']}
+          dangerouslySetInnerHTML={{ __html: energyConsultingData.leistungenText }}
         />
       </div>
-      <div className={styles.imageWrapper}>
+      
+      <div className={styles['image-wrapper']}>
         <Image
           src="/assets/Piktogramm_Energieberatung.webp"
-          alt="Profilbild von Jacob Mau"
+          alt="Energieberatung Piktogramm"
           width={400}
           height={400}
-          className={styles.profileImage}
         />
       </div>
     </section>

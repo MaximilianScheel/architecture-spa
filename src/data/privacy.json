@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "Datenschutz",
+    "id": "privacy"
+  },
+  "responsibleParty": {
+    "name": "Jacob Mau",
+    "address": "Wrangelstraße 127",
+    "city": "10997 Berlin",
+    "phone": "+49 (0) 176 327 97872",
+    "email": "planung@jacobmau.de"
+  },
+  "hosting": {
+    "provider": "Greenmark IT GmbH",
+    "address": "Leinstraße 3",
+    "city": "31061 Alfeld (Leine)"
+  },
+  "sourceAttribution": {
+    "text": "Quelle:",
+    "url": "https://www.e-recht24.de"
+  }
+}

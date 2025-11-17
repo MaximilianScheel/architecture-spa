@@ -1,0 +1,11 @@
+.latest-wrapper {
+  margin-top: 0;
+}
+
+.slider-block {
+  margin-bottom: 6rem;
+
+  @media (max-width: 48rem) {
+    margin-bottom: 3rem;
+  }
+}

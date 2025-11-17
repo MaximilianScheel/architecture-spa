@@ -1,22 +1,31 @@
+@use 'sass:color';
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Inter:wght@200;300;400;500;600&display=swap');
+@import './utilities';
 
+// =============================================================================
+// DESIGN TOKENS - Colors, spacing, and global variables
+// =============================================================================
+
+// Color palette
 $color-bg: #ededed;
-$color-bg-secondary:  #191716;
+$color-bg-secondary: #191716;
 $color-text: #ffffff;
 $color-text-secondary: #555555;
-$color-text-tertiary: #FF6B6B;
-$color-main: #FF6B6B;
-$color-accent: #FF6B6B;
+$color-text-tertiary: #ff6b6b;
+$color-main: #ff6b6b;
+$color-accent: #ff6b6b;
 $color-surface: #ffffff;
-// derived
-$color-bg-muted: lighten($color-bg, 8%);
-$color-accent-hover: lighten($color-accent, 8%);
 
-$container-max: 1440px;
+// Derived colors
+$color-bg-muted: color.adjust($color-bg, $lightness: 8%);
+$color-accent-hover: color.adjust($color-accent, $lightness: 8%);
+
+// Layout
+$container-max: 90rem; // 1440px
 $container-padding-desktop: 2rem;
 $container-padding-mobile: 2rem;
-$header-height-desktop: 96px;
-$header-height-mobile: 72px;
+$header-height-desktop: 6rem; // 96px
+$header-height-mobile: 4.5rem; // 72px
 
 :root {
   --color-bg: #{$color-bg};
@@ -38,19 +47,23 @@ $header-height-mobile: 72px;
   --header-height: #{$header-height-desktop};
 }
 
+// =============================================================================
+// GLOBAL RESET
+// =============================================================================
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
-
 
 body {
   font-family: var(--font-body);
@@ -59,14 +72,18 @@ body {
   line-height: 1.6;
   background-color: var(--color-bg);
   color: var(--color-text);
-
+  overflow-x: hidden;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body { overflow-x: hidden; max-width: 100%; }
+// =============================================================================
+// LAYOUT CONTAINERS
+// =============================================================================
 
-.container, .pageContainer {
+.container,
+.page-container {
   max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
@@ -82,7 +99,13 @@ section {
   scroll-margin-top: var(--header-height);
 }
 
-h1, h2, h3 {
+// =============================================================================
+// TYPOGRAPHY
+// =============================================================================
+
+h1,
+h2,
+h3 {
   font-family: var(--font-headings);
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -91,30 +114,40 @@ h1, h2, h3 {
   font-style: italic;
 }
 
+h1 {
+  font-size: 2.6rem;
+  margin: 2.5rem 0 1rem;
+}
+
 h2 {
   margin: 8rem 0 6rem;
   font-size: 2.2rem;
 }
 
-h1 { font-size: 2.6rem; margin: 2.5rem 0 1rem; }
-h3 { font-size: 1.8rem; margin: 1.5rem 0 0; }
+h3 {
+  font-size: 1.8rem;
+  margin: 1.5rem 0 0;
+}
 
 p {
-  font-size: 1.4rem; /* uniform paragraph size */
+  font-size: 1.4rem;
   margin-bottom: 1rem;
 }
 
-li { font-size: inherit; line-height: 1.6; }
-
-
-a {
-  color: inherit;            
-  text-decoration: none;
+li {
   font-size: inherit;
+  line-height: 1.6;
 }
 
-a:hover {
-  color: var(--color-accent);
+a {
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-accent);
+  }
 }
 
 img {
@@ -123,38 +156,53 @@ img {
   display: block;
 }
 
+// =============================================================================
+// UTILITY CLASSES
+// =============================================================================
+
 .start-anim-active,
 .start-anim-active body {
   background: #000 !important;
   overflow: hidden;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: disc;
   padding-left: 2rem;
 }
 
+// =============================================================================
+// THIRD-PARTY OVERRIDES - Swiper
+// =============================================================================
 
-.swiper-button-prev, .swiper-button-next {
-  color: var(--color-text-tertiary)!important;
-
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--color-text-tertiary) !important;
 }
 
 .swiper-pagination-bullet {
-  background: var(--color-text-tertiary)!important;
+  background: var(--color-text-tertiary) !important;
 }
 
-@media (max-width: 1024px) {
+// =============================================================================
+// RESPONSIVE BREAKPOINTS
+// =============================================================================
+
+@media (max-width: 64rem) {
+  // 1024px
   :root {
     --header-height: #{$header-height-mobile};
   }
+
   section {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
+  // 768px
   :root {
     --container-padding: #{$container-padding-mobile};
   }

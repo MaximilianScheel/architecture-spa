@@ -1,0 +1,30 @@
+.text-wrapper {
+  margin: 0 0 6rem 0;
+
+  @media (max-width: 48rem) {
+    margin: 0 0 3rem 0;
+  }
+}
+
+.services-text {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 6rem;
+
+  @media (max-width: 48rem) {
+    margin-bottom: 3rem;
+  }
+}
+
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+
+  img {
+    max-width: 37.5rem;
+    width: 100%;
+    height: auto;
+  }
+}
+  

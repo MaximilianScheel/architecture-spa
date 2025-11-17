@@ -1,5 +1,41 @@
+.privacy {
+  padding-bottom: 6rem;
+
+  @media (max-width: 48rem) {
+    padding-bottom: 3rem;
+  }
+}
+
 .wrapper {
-    h3, h4, p {
-        margin-bottom: 2rem;
+  h3,
+  h4,
+  p {
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    margin-top: 4rem;
+
+    &:first-child {
+      margin-top: 0;
     }
+  }
+
+  ul {
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+  }
+
+  li {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: underline;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }

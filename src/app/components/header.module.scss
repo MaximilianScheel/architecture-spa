@@ -9,7 +9,7 @@
   overflow-x: clip;
 }
 
-.headerWrapper {
+.header-wrapper {
   max-width: var(--container-max);
   width: 100%;
   margin: 0 auto;
@@ -17,7 +17,6 @@
   padding-right: var(--container-padding);
   position: relative;
   overflow-x: clip;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,17 +28,21 @@
 
   svg {
     display: block;
-    width: 96px;
-    height: 96px;
+    width: 6rem;
+    height: 6rem;
+  }
+
+  :global(.st0) {
+    stroke: white !important;
   }
 }
 
-.burgerBtn {
+.burger-btn {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 22px;
+  width: 1.875rem; // 30px
+  height: 1.375rem; // 22px
   background: transparent;
   border: none;
   padding: 0;
@@ -47,17 +50,23 @@
 
   span {
     display: block;
-    height: 3px;
+    height: 0.1875rem; // 3px
     background-color: var(--color-text);
-    border-radius: 2px;
+    border-radius: 0.125rem; // 2px
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
 }
 
-.burgerBtnOpen {
-  span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-  span:nth-child(2) { opacity: 0; }
-  span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+.burger-btn--open {
+  span:nth-child(1) {
+    transform: translateY(0.5625rem) rotate(45deg); // 9px
+  }
+  span:nth-child(2) {
+    opacity: 0;
+  }
+  span:nth-child(3) {
+    transform: translateY(-0.5625rem) rotate(-45deg); // -9px
+  }
 }
 
 .nav {
@@ -66,7 +75,7 @@
   gap: 2rem;
 }
 
-.navLink {
+.nav-link {
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -80,11 +89,15 @@
   &:hover {
     color: var(--color-accent);
   }
-}
-.navLinkActive { color: var(--color-accent); }
 
-@media (max-width: 768px) {
-  .burgerBtn {
+  &--active {
+    color: var(--color-accent);
+  }
+}
+
+@media (max-width: 48rem) {
+  // 768px
+  .burger-btn {
     display: flex;
   }
 
@@ -101,26 +114,21 @@
     align-items: flex-end;
     text-align: right;
     z-index: 100;
-
     transform: translateX(100%);
     opacity: 0;
     pointer-events: none;
     transition: transform 0.4s ease, opacity 0.4s ease;
     will-change: transform, opacity;
+
+    &--open {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 
-  .navOpen {
-    transform: translateX(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .navLink {
+  .nav-link {
     height: auto;
     padding: 0.5rem 1rem;
   }
-}
-
-.st0 {
-  stroke: white !important;
 }

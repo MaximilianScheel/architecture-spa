@@ -1,8 +1,9 @@
-import styles from './Datenschutz.module.scss';
+import privacyData from '../../data/privacy.json';
+import styles from './privacy.module.scss';
 
-export default function DatenschutzSection() {
+export default function PrivacyPage() {
   return (
-    <section id="datenschutz">
+    <section id={privacyData.meta.id} className={styles.privacy}>
       <div className={styles.wrapper}>
         <h2>1. Datenschutz auf einen Blick</h2>
         <h3>Allgemeine Hinweise</h3>
@@ -89,9 +90,9 @@ export default function DatenschutzSection() {
         </p>
         <p>Wir setzen folgende(n) Hoster ein:</p>
         <p>
-          Greenmark IT GmbH<br />
-          Leinstra&szlig;e 3<br />
-          31061 Alfeld (Leine)
+          {privacyData.hosting.provider}<br />
+          {privacyData.hosting.address}<br />
+          {privacyData.hosting.city}
         </p>
         <h2>3. Allgemeine Hinweise und Pflicht&shy;informationen</h2>
         <h3>Datenschutz</h3>
@@ -120,14 +121,14 @@ export default function DatenschutzSection() {
           ist:
         </p>
         <p>
-          Jacob Mau<br />
-          Wrangelstra&szlig;e 127<br />
-          10997 Berlin
+          {privacyData.responsibleParty.name}<br />
+          {privacyData.responsibleParty.address}<br />
+          {privacyData.responsibleParty.city}
         </p>
 
         <p>
-          Telefon: +49 (0) 176 327 97872<br />
-          E-Mail: planung&#64;jacobmau.de
+          Telefon: {privacyData.responsibleParty.phone}<br />
+          E-Mail: {privacyData.responsibleParty.email}
         </p>
         <p>
           Verantwortliche Stelle ist die nat&uuml;rliche oder juristische Person, die
@@ -363,7 +364,7 @@ export default function DatenschutzSection() {
           Zwingende gesetzliche Bestimmungen &ndash; insbesondere gesetzliche
           Aufbewahrungsfristen &ndash; bleiben unber&uuml;hrt.
         </p>
-        <p>Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></p>
+        <p>{privacyData.sourceAttribution.text} <a href={privacyData.sourceAttribution.url} target="_blank" rel="noopener noreferrer">{privacyData.sourceAttribution.url}</a></p>
       </div>
     </section>
   )

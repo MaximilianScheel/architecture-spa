@@ -3,15 +3,11 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import styles from './Header.module.scss';
+import navigationData from '../../data/navigation.json';
+import headerData from '../../data/header.json';
+import styles from './header.module.scss';
 
-const NAV_ITEMS = [
-  { id: 'latest', label: 'aktuelles' },
-  { id: 'architecture', label: 'architektur' },
-  { id: 'energy-consulting', label: 'energieberatung' },
-  { id: 'about', label: 'profil' },
-  { id: 'contact', label: 'kontakt' },
-];
+const NAV_ITEMS = navigationData.items;
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -96,86 +92,60 @@ export default function Header() {
     closeMenu();
   };
 
+  const LogoSvg = () => (
+    <svg
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={headerData.logo.viewBox}
+      width={headerData.logo.width}
+      height={headerData.logo.height}
+      shapeRendering="geometricPrecision"
+    >
+      <style>{`.st0 { fill: none; stroke: white !important; stroke-miterlimit: 10; stroke-width: 1.5; vector-effect: non-scaling-stroke; shape-rendering: geometricPrecision; stroke-linecap: square; stroke-linejoin: miter; }`}</style>
+      <path
+        className="st0"
+        vectorEffect="non-scaling-stroke"
+        strokeWidth={1.5}
+        d={headerData.logo.path}
+      />
+    </svg>
+  );
+
   return (
     <header className={styles.header}>
-      <div className={styles.headerWrapper}>
-        {/* Logo */}
+      <div className={styles['header-wrapper']}>
         <div className={styles.logo}>
           {isHome ? (
-            <a href="#latest" onClick={() => handleNavClick('latest')}>
-              {/* Dein SVG-Logo hier */}
-              <svg
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 110 110"
-                width="96"
-                height="96"
-                shapeRendering="geometricPrecision"
-              >
-                <style>{`.st0 { fill: none; stroke: white !important; stroke-miterlimit: 10; stroke-width: 1.5; vector-effect: non-scaling-stroke; shape-rendering: geometricPrecision; stroke-linecap: square; stroke-linejoin: miter; }`}</style>
-                <path
-                  className="st0"
-                  vectorEffect="non-scaling-stroke"
-                  strokeWidth={1.5}
-                  d="M105,95.9H5V14.5h100V95.9z
-                     M18.6,84l10.3-57.6h-3.2L15.4,84H18.6z
-                     M32.5,84l10.3-57.6h-3.2L29.3,84H32.5z
-                     M46.3,84L55,35.3L63.8,84H67L56.6,26.4h-3.2L43.2,84H46.3z
-                     M80.8,84L70.5,26.4h-3.2L77.6,84H80.8z
-                     M94.7,84L84.4,26.4h-3.2L91.5,84H94.7z"
-                />
-              </svg>
+            <a href="#latest" onClick={() => handleNavClick('latest')} aria-label="Home">
+              <LogoSvg />
             </a>
           ) : (
-            <Link href="/#latest" scroll={false} onClick={() => handleNavClick('latest')}>
-              {/* Dein SVG-Logo hier */}
-              <svg
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 110 110"
-                width="96"
-                height="96"
-                shapeRendering="geometricPrecision"
-              >
-                <style>{`.st0 { fill: none; stroke: white !important; stroke-miterlimit: 10; stroke-width: 1.5; vector-effect: non-scaling-stroke; shape-rendering: geometricPrecision; }`}</style>
-                <path
-                  className="st0"
-                  vectorEffect="non-scaling-stroke"
-                  strokeWidth={1.5}
-                  d="M105,95.9H5V14.5h100V95.9z
-                     M18.6,84l10.3-57.6h-3.2L15.4,84H18.6z
-                     M32.5,84l10.3-57.6h-3.2L29.3,84H32.5z
-                     M46.3,84L55,35.3L63.8,84H67L56.6,26.4h-3.2L43.2,84H46.3z
-                     M80.8,84L70.5,26.4h-3.2L77.6,84H80.8z
-                     M94.7,84L84.4,26.4h-3.2L91.5,84H94.7z"
-                />
-              </svg>
+            <Link href="/#latest" scroll={false} onClick={() => handleNavClick('latest')} aria-label="Home">
+              <LogoSvg />
             </Link>
           )}
         </div>
 
-        {/* Burger-Button mit drei Bars */}
         <button
-          className={`${styles.burgerBtn} ${isOpen ? styles.burgerBtnOpen : ''}`}
+          className={`${styles['burger-btn']} ${isOpen ? styles['burger-btn--open'] : ''}`}
           onClick={() => setIsOpen(o => !o)}
-          aria-label={isOpen ? 'Menü schließen' : 'Menü öffnen'}
+          aria-label={isOpen ? headerData.aria.menuClose : headerData.aria.menuOpen}
           aria-expanded={isOpen}
-          aria-controls="primary-navigation"
+          aria-controls={headerData.aria.primaryNav}
         >
           <span />
           <span />
           <span />
         </button>
 
-        {/* Navigation */}
         <nav
-          id="primary-navigation"
-          className={`${styles.nav} ${isOpen ? styles.navOpen : ''}`}
+          id={headerData.aria.primaryNav}
+          className={`${styles.nav} ${isOpen ? styles['nav--open'] : ''}`}
           aria-hidden={!isOpen}
         >
           {NAV_ITEMS.map(({ id, label }) => {
             const isActive = activeSection === id;
-            const className = `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`;
+            const className = `${styles['nav-link']} ${isActive ? styles['nav-link--active'] : ''}`;
 
             return isHome ? (
               <a

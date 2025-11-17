@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.scss';
-import pageModule from './Page.module.scss';
+import pageModule from './page.module.scss';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import StartAnimation from './components/StartAnimation';
@@ -21,7 +21,7 @@ export default function RootLayout({
       <body>
         <StartAnimation />
         <Header />
-        <div className={pageModule.container}>
+        <div className={pageModule['page-container']}>
           {children}
         </div>
         <Footer />

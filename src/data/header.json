@@ -1,0 +1,13 @@
+{
+  "logo": {
+    "width": 96,
+    "height": 96,
+    "viewBox": "0 0 110 110",
+    "path": "M105,95.9H5V14.5h100V95.9z M18.6,84l10.3-57.6h-3.2L15.4,84H18.6z M32.5,84l10.3-57.6h-3.2L29.3,84H32.5z M46.3,84L55,35.3L63.8,84H67L56.6,26.4h-3.2L43.2,84H46.3z M80.8,84L70.5,26.4h-3.2L77.6,84H80.8z M94.7,84L84.4,26.4h-3.2L91.5,84H94.7z"
+  },
+  "aria": {
+    "menuOpen": "Menü öffnen",
+    "menuClose": "Menü schließen",
+    "primaryNav": "primary-navigation"
+  }
+}
