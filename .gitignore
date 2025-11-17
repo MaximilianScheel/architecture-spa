@@ -3,8 +3,6 @@
 # dependencies
 /node_modules
 /.pnp
-assets
-/data
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -41,7 +39,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-#data
 
 .qodo
