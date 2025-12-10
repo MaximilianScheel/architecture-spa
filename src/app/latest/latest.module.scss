@@ -1,13 +1,10 @@
 .latest-wrapper {
   margin-top: 4rem;
+  padding-bottom: 1rem;
 
   @media (max-width: 48rem) {
     margin-top: 2rem;  
   }
-}
-
-:global(#latest) {
-  padding-bottom: 1rem;
 }
 
 .slider-block {

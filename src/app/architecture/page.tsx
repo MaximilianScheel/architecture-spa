@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 export default function ArchitecturePage() {
   return (
-    <section id="architecture">
+    <section id="architecture" className={styles.section}>
       <h2>{architectureData.heading}</h2>
 
       <div className={styles['text-wrapper']}>
