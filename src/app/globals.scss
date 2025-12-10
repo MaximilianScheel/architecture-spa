@@ -120,7 +120,7 @@ h1 {
 }
 
 h2 {
-  margin: 8rem 0 6rem;
+  margin: 6rem 0 3rem;
   font-size: 2.2rem;
 }
 
@@ -205,6 +205,10 @@ ol {
   // 768px
   :root {
     --container-padding: #{$container-padding-mobile};
+  }
+
+  h2 {
+    margin: 3rem 0 2rem;
   }
 }
 

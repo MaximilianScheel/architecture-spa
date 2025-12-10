@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import navigationData from '../../data/navigation.json';
@@ -12,6 +12,7 @@ const NAV_ITEMS = navigationData.items;
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('latest');
+  const isNavigatingRef = useRef(false);
 
   const pathname = usePathname();
   const isHome = pathname === '/';
@@ -30,48 +31,42 @@ export default function Header() {
     };
 
     let ticking = false;
+
     const onScroll = () => {
+      // Wenn wir gerade per Klick navigiert haben, ignoriere den Scroll-Observer kurz
+      if (isNavigatingRef.current) return;
+
       if (ticking) return;
       ticking = true;
+      
       requestAnimationFrame(() => {
         const headerH = getHeaderHeight();
-        const offset = headerH + 8; // kleiner Puffer unter dem Header
-        const lineYAbs = window.scrollY + offset; // absolute Dokumentposition der Linie
+        const offset = headerH + 8;
+        const lineYAbs = window.scrollY + offset;
 
-        // finde die Section, die diese Linie "enthält" (Top/Bottom in Dokumentkoordinaten)
         let current = ids[0];
         const positions = ids
           .map(id => {
             const el = document.getElementById(id);
             if (!el) return null;
             const rect = el.getBoundingClientRect();
-            const top = rect.top + window.scrollY; // absolute Dokumentkoordinate
-            const height = el.offsetHeight;
-            const bottom = top + height;
-            return { id, top, bottom };
+            const top = rect.top + window.scrollY;
+            return { id, top };
           })
-          .filter(Boolean) as { id: string; top: number; bottom: number }[];
+          .filter(Boolean) as { id: string; top: number }[];
 
-        // wenn oberhalb der ersten Section
         if (positions.length) {
-          const first = positions[0];
-          const second = positions[1];
-          if (second && lineYAbs < second.top) {
-            current = first.id; // bis zur zweiten Section bleibt 'latest'
-          } else if (lineYAbs < first.top + 1) {
-            current = first.id;
-          } else {
+          positions.sort((a, b) => a.top - b.top);
+
           for (const p of positions) {
-            if (lineYAbs >= p.top && lineYAbs < p.bottom) {
+            if (lineYAbs >= p.top - 1) {
               current = p.id;
+            } else {
               break;
             }
-            if (lineYAbs >= p.bottom) {
-              current = p.id; // wir sind darunter, gehe weiter
-            }
-          }
           }
         }
+        
         setActiveSection(current);
         ticking = false;
       });
@@ -79,7 +74,8 @@ export default function Header() {
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
-    onScroll(); // initial bestimmen
+    onScroll();
+    
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
@@ -87,9 +83,17 @@ export default function Header() {
   }, [isHome]);
 
   const closeMenu = () => setIsOpen(false);
+  
   const handleNavClick = (id: string) => {
+    // Setze sofort die aktive Section
     setActiveSection(id);
     closeMenu();
+    
+    // Blockiere den Scroll-Observer für 1 Sekunde nach dem Klick
+    isNavigatingRef.current = true;
+    setTimeout(() => {
+      isNavigatingRef.current = false;
+    }, 1000);
   };
 
   const LogoSvg = () => (
