@@ -2,8 +2,12 @@
   margin-top: 0;
 }
 
+:global(#latest) {
+  padding-bottom: 1rem;
+}
+
 .slider-block {
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
 
   @media (max-width: 48rem) {
     margin-bottom: 3rem;

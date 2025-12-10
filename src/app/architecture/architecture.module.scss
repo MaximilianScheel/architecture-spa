@@ -11,6 +11,14 @@
   }
 }
 
+:global(#architecture) {
+  padding-top: 1rem;
+
+  > h2 {
+    margin-top: 2rem;
+  }
+}
+
 .image-wrapper {
   display: flex;
   justify-content: center;
@@ -52,6 +60,7 @@
   justify-content: space-between;
   width: 100%;
   cursor: pointer;
+  text-transform: none;
 
   &::after {
     content: '▼';

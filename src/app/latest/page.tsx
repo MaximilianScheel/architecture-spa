@@ -8,7 +8,7 @@ export default function LatestSection() {
   return (
     <section className={styles['latest-wrapper']} id="latest">
       <div>
-        <h1>{latestData.heading}</h1>
+        <h2>{latestData.heading}</h2>
       </div>
 
       {latestData.projects.map((project) => (

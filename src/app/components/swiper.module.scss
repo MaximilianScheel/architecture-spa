@@ -1,16 +1,16 @@
 .wrapper {
   width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
 
   :global(.swiper-slide) img {
     width: 100%;
-    height: auto;
     display: block;
   }
 }
 
 .container {
   width: 100%;
-  height: auto;
 
   :global(.swiper-button-prev),
   :global(.swiper-button-next) {

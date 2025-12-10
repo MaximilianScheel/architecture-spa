@@ -1,7 +1,8 @@
 .header {
   background-color: var(--color-bg-secondary);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: 999;
   width: 100%;
   padding: 0;
@@ -95,8 +96,16 @@
   }
 }
 
-@media (max-width: 48rem) {
-  // 768px
+@media (max-width: 64rem) {
+  // 1024px
+
+  .logo {
+    svg {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+  }
+
   .burger-btn {
     display: flex;
   }
